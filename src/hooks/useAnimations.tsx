@@ -1,8 +1,10 @@
-import { useState, useEffect, useRef, ReactNode, RefObject } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import type { ReactNode, RefObject } from 'react';
 
 // Hook for scroll-triggered animations
 export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
-  threshold = 0.15
+  threshold = 0.01,
+  rootMargin = '0px'
 ): [RefObject<T | null>, boolean] {
   const ref = useRef<T | null>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -18,12 +20,12 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
           observer.unobserve(element);
         }
       },
-      { threshold }
+      { threshold, rootMargin }
     );
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [threshold, rootMargin]);
 
   return [ref, isVisible];
 }
@@ -32,7 +34,8 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
 export function useStaggerReveal(
   itemCount: number,
   staggerDelay = 100,
-  threshold = 0.1
+  threshold = 0.01,
+  rootMargin = '0px'
 ): [RefObject<HTMLDivElement | null>, boolean[]] {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [visibleItems, setVisibleItems] = useState<boolean[]>(
@@ -58,12 +61,12 @@ export function useStaggerReveal(
           observer.unobserve(element);
         }
       },
-      { threshold }
+      { threshold, rootMargin }
     );
 
     observer.observe(element);
     return () => observer.disconnect();
-  }, [itemCount, staggerDelay, threshold]);
+  }, [itemCount, staggerDelay, threshold, rootMargin]);
 
   return [containerRef, visibleItems];
 }
@@ -79,8 +82,9 @@ export function useScrollToTop(): void {
 interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
-  animation?: 'fade-in' | 'fade-in-up' | 'slide-in-left' | 'slide-in-right' | 'scale-in';
+  animation?: 'fade-in' | 'fade-in-up' | 'fade-in-down' | 'slide-in-left' | 'slide-in-right' | 'scale-in' | 'reveal-right';
   delay?: number;
+  threshold?: number;
 }
 
 export function AnimatedSection({
@@ -88,8 +92,9 @@ export function AnimatedSection({
   className = '',
   animation = 'fade-in-up',
   delay = 0,
+  threshold = 0.01,
 }: AnimatedSectionProps) {
-  const [ref, isVisible] = useScrollReveal();
+  const [ref, isVisible] = useScrollReveal(threshold);
 
   const animationClass = isVisible ? `animate-${animation}` : '';
 
@@ -100,6 +105,7 @@ export function AnimatedSection({
       style={{
         opacity: isVisible ? undefined : 0,
         animationDelay: `${delay}ms`,
+        animationFillMode: 'both',
       }}
     >
       {children}

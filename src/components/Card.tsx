@@ -17,10 +17,13 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`group relative rounded-2xl border border-border bg-surface p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/5 hover:border-accent/20 ${className}`}
+      className={`group relative rounded-2xl border border-border bg-surface p-8 transition-all duration-500 ease-[var(--ease-out-premium)] hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/10 ${className}`}
     >
+      {/* Premium Border Reveal */}
+      <div className="absolute inset-0 rounded-2xl border-2 border-transparent transition-all duration-500 group-hover:border-accent/20 group-hover:scale-[1.02] pointer-events-none" />
+      
       {icon && (
-        <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors duration-300 group-hover:bg-accent group-hover:text-white">
+        <div className="mb-5 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/5 text-accent transition-all duration-500 ease-[var(--ease-out-premium)] group-hover:bg-accent group-hover:text-white group-hover:scale-110 group-hover:rotate-3">
           {icon}
         </div>
       )}

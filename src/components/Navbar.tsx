@@ -128,29 +128,43 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed inset-0 z-40 bg-surface transition-all duration-300 lg:hidden ${
+          className={`fixed inset-0 z-40 bg-surface transition-all duration-500 ease-[var(--ease-out-premium)] lg:hidden ${
             mobileOpen
-              ? 'opacity-100 pointer-events-auto'
-              : 'opacity-0 pointer-events-none'
+              ? 'opacity-100 translate-y-0'
+              : 'opacity-0 -translate-y-4 pointer-events-none'
           }`}
         >
-          <div className="flex h-full flex-col items-center justify-center gap-6">
-            {navLinks.map((link) => (
+          <div className="flex h-full flex-col items-center justify-center gap-8">
+            {navLinks.map((link, index) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-2xl font-semibold transition-colors duration-200 ${
+                className={`text-2xl font-semibold transition-all duration-500 ease-[var(--ease-out-premium)] ${
                   location.pathname === link.path
                     ? 'text-accent'
                     : 'text-text-primary hover:text-accent'
+                } ${
+                  mobileOpen 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-8'
                 }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {link.label}
               </Link>
             ))}
-            <Button as="link" to="/contact" size="lg" className="mt-4">
-              Get Started
-            </Button>
+            <div 
+              className={`mt-4 transition-all duration-500 ease-[var(--ease-out-premium)] ${
+                mobileOpen 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${navLinks.length * 100}ms` }}
+            >
+              <Button as="link" to="/contact" size="lg">
+                Get Started
+              </Button>
+            </div>
           </div>
         </div>
       </nav>

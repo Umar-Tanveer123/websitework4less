@@ -1,4 +1,5 @@
-import { useState, FormEvent } from 'react';
+import { useState } from 'react';
+import type { FormEvent } from 'react';
 import SectionWrapper from '../components/SectionWrapper';
 import Button from '../components/Button';
 import { Input, Textarea } from '../components/FormInputs';

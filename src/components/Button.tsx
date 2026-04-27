@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 interface ButtonBaseProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
 }
 
@@ -31,17 +31,17 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseClasses =
-    'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2';
+    'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-500 ease-[var(--ease-out-premium)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 active:scale-[0.98]';
 
   const variantClasses: Record<string, string> = {
     primary:
-      'bg-accent text-white hover:bg-accent-hover shadow-md hover:shadow-lg hover:-translate-y-0.5',
+      'bg-accent text-white hover:bg-accent-hover shadow-md hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 hover:scale-[1.02]',
     secondary:
-      'bg-primary text-white hover:bg-primary-light shadow-md hover:shadow-lg hover:-translate-y-0.5',
+      'bg-primary text-white hover:bg-primary-light shadow-md hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 hover:scale-[1.02]',
     outline:
-      'border-2 border-accent text-accent hover:bg-accent hover:text-white',
+      'border-2 border-accent text-accent hover:bg-accent hover:text-white hover:shadow-lg hover:shadow-accent/20 hover:-translate-y-0.5 hover:scale-[1.02]',
     ghost:
-      'text-text-secondary hover:text-accent hover:bg-surface-muted',
+      'text-text-secondary hover:text-accent hover:bg-surface-muted hover:scale-[1.02]',
   };
 
   const sizeClasses: Record<string, string> = {
