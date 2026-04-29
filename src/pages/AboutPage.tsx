@@ -137,6 +137,9 @@ export default function AboutPage() {
               over 200 clients transform their online presence and achieve
               measurable growth.
             </p>
+            <p className="mt-4 text-lg font-medium text-accent">
+              The reason why people choose us is because we work with any budget—from small to large businesses—and we are fast, reliable, and always available.
+            </p>
           </AnimatedSection>
 
           <AnimatedSection animation="slide-in-right" delay={200}>

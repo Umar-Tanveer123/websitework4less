@@ -25,12 +25,12 @@ const contactInfo = [
   {
     icon: <PhoneIcon className="h-6 w-6" />,
     title: 'Call Us',
-    details: ['(848) 368-8867'],
+    details: ['Call or text us anytime:', '(848) 368-8867'],
   },
   {
     icon: <ClockIcon className="h-6 w-6" />,
-    title: 'Business Hours',
-    details: ['Mon – Fri: 9:00 AM – 6:00 PM', 'Sat – Sun: Closed'],
+    title: '24/7 Support',
+    details: ['Available 24/7', 'If no one answers, we will return your call'],
   },
 ];
 
