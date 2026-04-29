@@ -115,7 +115,7 @@ export default function HomePage() {
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button as="link" to="/contact" size="lg">
                   Start Your Project
-                  <ArrowRightIcon className="ml-2 h-4 w-4" />
+                  <ArrowRightIcon className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
                 <Button as="link" to="/portfolio" variant="outline" size="lg">
                   View Our Work

@@ -31,7 +31,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseClasses =
-    'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-500 ease-[var(--ease-out-premium)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 active:scale-[0.98]';
+    'group inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-500 ease-[var(--ease-out-premium)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent/50 focus:ring-offset-2 active:scale-[0.98]';
 
   const variantClasses: Record<string, string> = {
     primary:
