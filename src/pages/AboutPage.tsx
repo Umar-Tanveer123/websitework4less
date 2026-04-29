@@ -125,19 +125,25 @@ export default function AboutPage() {
               <br />
               Full-Service Agency
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-text-secondary">
-              What started as a one-person freelance operation in 2012 has grown
-              into a thriving agency serving businesses of all sizes. Our journey
-              has been driven by a simple belief: every business deserves a
-              world-class online presence, without the hassle. We make sure that we perfect your job until fully satisfied.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-text-secondary">
-              Today, our team of 50+ professionals combines diverse skills and
-              backgrounds to deliver innovative digital solutions. We&apos;ve helped
-              over 200 clients transform their online presence and achieve
-              measurable growth.
-            </p>
-            <p className="mt-4 text-lg font-medium text-accent">
+            <div className="mt-6 space-y-4">
+              <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-accent">
+                <h3 className="font-bold text-text-primary">2023</h3>
+                <p className="text-sm text-text-secondary">Worked as a freelancer focusing on standard websites and affordable pricing.</p>
+              </div>
+              <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-accent">
+                <h3 className="font-bold text-text-primary">2024</h3>
+                <p className="text-sm text-text-secondary">Word spread quickly and we hired 5 developers to keep up with demand.</p>
+              </div>
+              <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-accent">
+                <h3 className="font-bold text-text-primary">2025</h3>
+                <p className="text-sm text-text-secondary">Quickly became the USA go-to for any size job, from small to large, expanding our team to over 40.</p>
+              </div>
+              <div className="relative pl-6 before:absolute before:left-0 before:top-2 before:h-2 before:w-2 before:rounded-full before:bg-accent">
+                <h3 className="font-bold text-text-primary">2026</h3>
+                <p className="text-sm text-text-secondary">Launched the enterprise solutions department, expanding our project range from minor website fixes to complex custom frameworks. We now have a team comprising over 250 employees.</p>
+              </div>
+            </div>
+            <p className="mt-6 text-lg font-medium text-accent">
               The reason why people choose us is because we work with any budget—from small to large businesses—and we are fast, reliable, and always available.
             </p>
           </AnimatedSection>

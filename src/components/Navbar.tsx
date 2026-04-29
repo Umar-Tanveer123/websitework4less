@@ -65,7 +65,7 @@ export default function Navbar() {
             </svg>
           </div>
           <span className={`transition-colors duration-300 ${isWhiteText ? 'text-white' : 'text-text-primary'}`}>
-            WW<span className="text-accent">4</span>L
+            Website Work <span className="text-accent">4</span> Less
           </span>
         </Link>
 

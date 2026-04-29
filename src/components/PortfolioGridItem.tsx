@@ -2,6 +2,7 @@ interface PortfolioGridItemProps {
   title: string;
   category: string;
   imageUrl: string;
+  url: string;
   className?: string;
 }
 
@@ -9,11 +10,15 @@ export default function PortfolioGridItem({
   title,
   category,
   imageUrl,
+  url,
   className = '',
 }: PortfolioGridItemProps) {
   return (
-    <div
-      className={`group relative overflow-hidden rounded-2xl cursor-pointer ${className}`}
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group relative overflow-hidden rounded-2xl block cursor-pointer ${className}`}
     >
       <div className="aspect-[4/3] w-full overflow-hidden bg-primary/5">
         <img
@@ -30,6 +35,6 @@ export default function PortfolioGridItem({
       </div>
       {/* Subtle border overlay */}
       <div className="absolute inset-0 rounded-2xl border border-white/10 transition-colors duration-500 group-hover:border-accent/30 pointer-events-none" />
-    </div>
+    </a>
   );
 }

@@ -108,6 +108,9 @@ export default function HomePage() {
               <p className="mt-6 max-w-lg text-lg leading-relaxed text-text-secondary">
                 We are from the largest and most established website design and custom software companies in the country and offer the best rates that you will ever find. Affordable Websites & Marketing for Businesses of All Sizes. We work with any budget—big or small. We do custom software, help your business show on Google through SEO and ads, and make websites that impress your audience. We design websites that feel right, look professional, and build instant trust.
               </p>
+              <p className="mt-4 max-w-lg text-md font-medium text-accent">
+                We offer no payment upfront and monthly installments until you pay off your site. You can use the site even before payments are made.
+              </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button as="link" to="/contact" size="lg">
                   Start Your Project

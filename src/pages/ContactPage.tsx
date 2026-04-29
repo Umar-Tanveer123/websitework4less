@@ -14,7 +14,7 @@ import {
 const contactInfo = [
   {
     icon: <MapPinIcon className="h-6 w-6" />,
-    title: 'Visit Us',
+    title: 'Headquarters',
     details: ['Lakewood, NJ USA'],
   },
   {
@@ -29,8 +29,8 @@ const contactInfo = [
   },
   {
     icon: <ClockIcon className="h-6 w-6" />,
-    title: '24/7 Support',
-    details: ['Available 24/7', 'If no one answers, we will return your call'],
+    title: '24/6 Support',
+    details: ['Available 24/6 (Closed on Saturdays)', 'If no one answers, we will return your call'],
   },
 ];
 
@@ -258,7 +258,11 @@ export default function ContactPage() {
                   {[
                     {
                       q: 'How long does a project take?',
-                      a: 'Most projects are delivered within 4–8 weeks, depending on complexity.',
+                      a: 'Most projects are delivered within 2-4 weeks, depending on complexity.',
+                    },
+                    {
+                      q: 'How does your pricing work?',
+                      a: 'Our pricing model is to always provide upfront quotes so that you know what the project will cost before you approve it.',
                     },
                     {
                       q: 'Do you offer ongoing support?',
