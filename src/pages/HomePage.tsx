@@ -6,6 +6,7 @@ import PortfolioGridItem from '../components/PortfolioGridItem';
 import { AnimatedSection, useStaggerReveal } from '../hooks/useAnimations';
 import { services } from '../data/services';
 import { projects } from '../data/portfolio';
+import { testimonials } from '../data/testimonials';
 import {
   ChatBubbleIcon,
   LightBulbIcon,
@@ -361,6 +362,45 @@ export default function HomePage() {
               ))}
             </div>
           </AnimatedSection>
+        </div>
+      </SectionWrapper>
+
+      {/* ==================== TESTIMONIALS ==================== */}
+      <SectionWrapper background="white">
+        <AnimatedSection>
+          <SectionHeading
+            label="Testimonials"
+            title="What Our Clients Say"
+            description="Don't just take our word for it. Hear from the businesses we've partnered with."
+          />
+        </AnimatedSection>
+
+        <div className="mt-12 grid gap-8 sm:grid-cols-2">
+          {testimonials.map((item, i) => (
+            <AnimatedSection
+              key={item.author}
+              animation="fade-in-up"
+              delay={i * 100}
+            >
+              <div className="relative h-full rounded-2xl border border-border bg-surface p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-accent/20 flex flex-col">
+                <svg
+                  className="mb-6 h-8 w-8 text-accent/20"
+                  fill="currentColor"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                >
+                  <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+                </svg>
+                <p className="flex-1 text-text-secondary leading-relaxed mb-6 italic">
+                  "{item.quote}"
+                </p>
+                <div className="mt-auto">
+                  <p className="font-bold text-text-primary">{item.author}</p>
+                  <p className="text-sm text-text-muted">{item.role}</p>
+                </div>
+              </div>
+            </AnimatedSection>
+          ))}
         </div>
       </SectionWrapper>
 
