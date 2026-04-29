@@ -6,6 +6,7 @@ const footerLinks = {
     { label: 'About', path: '/about' },
     { label: 'Services', path: '/services' },
     { label: 'Portfolio', path: '/portfolio' },
+    { label: 'Blog', path: '/blog' },
     { label: 'Contact', path: '/contact' },
   ],
   Services: services.slice(0, 4).map(s => ({
