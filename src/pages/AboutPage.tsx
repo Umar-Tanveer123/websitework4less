@@ -15,7 +15,7 @@ const values = [
   {
     title: 'Quality First',
     description:
-      'We never compromise on quality. Every project receives the same level of care, attention, and craftsmanship regardless of budget or scope.',
+      'We never compromise on quality. Every project receives the same level of care, attention, and craftsmanship regardless of scope.',
   },
   {
     title: 'Transparent Communication',
@@ -129,7 +129,7 @@ export default function AboutPage() {
               What started as a one-person freelance operation in 2012 has grown
               into a thriving agency serving businesses of all sizes. Our journey
               has been driven by a simple belief: every business deserves a
-              world-class online presence, without the world-class price tag.
+              world-class online presence, without the hassle. We make sure that we perfect your job until fully satisfied.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-text-secondary">
               Today, our team of 50+ professionals combines diverse skills and

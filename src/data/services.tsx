@@ -96,4 +96,17 @@ export const services: Service[] = [
       'Monthly performance reports',
     ],
   },
+  {
+    id: 'custom-software',
+    title: 'Custom Software Solutions',
+    description: 'We do custom software to help businesses run smoothly and efficiently and be able to manage everything from one dashboard.',
+    longDescription: 'We do custom software to help businesses run smoothly and efficiently and be able to manage everything from one dashboard. Like workers, jobs, orders coming in and orders going out, inventory.',
+    icon: <CodeIcon className="h-7 w-7" />,
+    features: [
+      'Employee & Job Management',
+      'Order Tracking & Processing',
+      'Inventory Control Systems',
+      'Centralized Business Dashboard',
+    ],
+  },
 ];

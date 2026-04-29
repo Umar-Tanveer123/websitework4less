@@ -106,9 +106,7 @@ export default function HomePage() {
                 </span>
               </h1>
               <p className="mt-6 max-w-lg text-lg leading-relaxed text-text-secondary">
-                From concept to launch, we craft high-performance websites and
-                digital experiences that help your business grow. No fluff, just
-                results.
+                From concept to launch, we craft high-performance websites and digital experiences that help your business grow. We are from the leading agency builders in the country. No job too big, no job too small. We work with companies of any size, meaning businesses of any size big or small. We offer longterm payment plans to make it easier to pay.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button as="link" to="/contact" size="lg">

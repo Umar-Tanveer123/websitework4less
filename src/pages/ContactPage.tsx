@@ -15,17 +15,17 @@ const contactInfo = [
   {
     icon: <MapPinIcon className="h-6 w-6" />,
     title: 'Visit Us',
-    details: ['123 Business Ave, Suite 100', 'Lakewood, NJ 08701'],
+    details: ['Lakewood, NJ USA'],
   },
   {
     icon: <EnvelopeIcon className="h-6 w-6" />,
     title: 'Email Us',
-    details: ['hello@websitework4less.com', 'support@websitework4less.com'],
+    details: ['info@websitework4less.com'],
   },
   {
     icon: <PhoneIcon className="h-6 w-6" />,
     title: 'Call Us',
-    details: ['(555) 123-4567', '(555) 987-6543'],
+    details: ['(848) 368-8867'],
   },
   {
     icon: <ClockIcon className="h-6 w-6" />,
@@ -243,9 +243,7 @@ export default function ContactPage() {
                       Interactive Map
                     </p>
                     <p className="mt-1 text-xs text-text-muted/70">
-                      123 Business Ave, Suite 100
-                      <br />
-                      Lakewood, NJ 08701
+                      Lakewood, NJ USA
                     </p>
                   </div>
                 </div>
@@ -265,10 +263,6 @@ export default function ContactPage() {
                     {
                       q: 'Do you offer ongoing support?',
                       a: 'Yes, we offer maintenance and support packages for all our clients.',
-                    },
-                    {
-                      q: 'What is your pricing model?',
-                      a: 'We offer both fixed-price and retainer models depending on project needs.',
                     },
                   ].map((faq) => (
                     <div key={faq.q}>
