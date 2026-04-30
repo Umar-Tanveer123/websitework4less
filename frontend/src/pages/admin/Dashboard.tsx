@@ -4,6 +4,7 @@ import axios from 'axios';
 import SectionWrapper from '../../components/SectionWrapper';
 import Button from '../../components/Button';
 import { AnimatedSection } from '../../hooks/useAnimations';
+import { API_BASE_URL } from '../../config';
 
 interface Post {
   id: string;
@@ -103,10 +104,10 @@ export default function AdminDashboard() {
 
     try {
       if (currentPost.id) {
-        await axios.put(`http://localhost:5001/api/posts/${currentPost.id}`, { ...currentPost, slug }, { headers });
+        await axios.put(`${API_BASE_URL}/api/posts/${currentPost.id}`, { ...currentPost, slug }, { headers });
         showToast('Post updated successfully!');
       } else {
-        await axios.post('http://localhost:5001/api/posts', { ...currentPost, slug, published: true }, { headers });
+        await axios.post(`${API_BASE_URL}/api/posts`, { ...currentPost, slug, published: true }, { headers });
         showToast('Post created successfully!');
       }
       setIsEditing(false);

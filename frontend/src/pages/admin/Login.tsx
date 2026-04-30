@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AnimatedSection } from '../../hooks/useAnimations';
+import { API_BASE_URL } from '../../config';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
@@ -19,7 +20,7 @@ export default function AdminLogin() {
     setLoading(true);
     setErrorMsg('');
     try {
-      const res = await axios.post('http://localhost:5001/api/auth/login', {
+      const res = await axios.post(`${API_BASE_URL}/api/auth/login`, {
         email,
         password,
       });
@@ -38,7 +39,7 @@ export default function AdminLogin() {
     setErrorMsg('');
     setSuccessMsg('');
     try {
-      await axios.post('http://localhost:5001/api/auth/forgot-password', { email });
+      await axios.post(`${API_BASE_URL}/api/auth/forgot-password`, { email });
       setSuccessMsg('OTP sent! Please check your email.');
       setView('otp');
     } catch (err: any) {
@@ -53,7 +54,7 @@ export default function AdminLogin() {
     setLoading(true);
     setErrorMsg('');
     try {
-      await axios.post('http://localhost:5001/api/auth/reset-password', {
+      await axios.post(`${API_BASE_URL}/api/auth/reset-password`, {
         email,
         otp,
         newPassword,

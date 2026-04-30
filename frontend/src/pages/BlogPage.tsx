@@ -14,6 +14,8 @@ interface Post {
   createdAt: string;
 }
 
+import { API_BASE_URL } from '../config';
+
 export default function BlogPage() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -21,7 +23,7 @@ export default function BlogPage() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await axios.get('http://localhost:5001/api/posts');
+        const res = await axios.get(`${API_BASE_URL}/api/posts`);
         // Only show published posts if we added that filter, or all posts for now
         setPosts(res.data);
       } catch (error) {

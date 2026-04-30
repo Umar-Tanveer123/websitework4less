@@ -13,6 +13,8 @@ interface Post {
   createdAt: string;
 }
 
+import { API_BASE_URL } from '../config';
+
 export default function BlogPostPage() {
   useScrollToTop();
   const { slug } = useParams<{ slug: string }>();
@@ -23,7 +25,7 @@ export default function BlogPostPage() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await axios.get(`http://localhost:5001/api/posts/${slug}`);
+        const res = await axios.get(`${API_BASE_URL}/api/posts/${slug}`);
         setPost(res.data);
       } catch (err) {
         console.error('Error fetching post:', err);
