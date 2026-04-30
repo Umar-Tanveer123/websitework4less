@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { AnimatedSection } from '../../hooks/useAnimations';
 import { API_BASE_URL } from '../../config';
@@ -181,11 +181,23 @@ export default function AdminLogin() {
               )}
             </button>
 
-            {(view === 'forgot' || view === 'otp') && (
-              <button type="button" onClick={() => { setView('login'); setErrorMsg(''); setSuccessMsg(''); }} className="w-full text-sm text-gray-400 hover:text-white transition-colors">
-                Back to Login
-              </button>
-            )}
+            <div className="mt-10 pt-8 border-t border-gray-800 text-center space-y-4">
+              <p className="text-sm text-gray-500 font-medium">
+                Don't have an account?{' '}
+                <Link to="/admin/register" className="text-accent font-bold hover:underline">
+                  Create admin
+                </Link>
+              </p>
+              <div>
+                <button
+                  type="button"
+                  onClick={() => setView(view === 'login' ? 'forgot' : 'login')}
+                  className="text-sm font-bold text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  {view === 'login' ? 'Forgot password?' : '← Back to login'}
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </AnimatedSection>

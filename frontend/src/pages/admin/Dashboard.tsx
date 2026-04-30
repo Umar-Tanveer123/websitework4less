@@ -53,7 +53,7 @@ export default function AdminDashboard() {
 
   const fetchPosts = async () => {
     try {
-      const res = await axios.get('http://localhost:5001/api/posts');
+      const res = await axios.get(`${API_BASE_URL}/api/posts`);
       setPosts(res.data);
     } catch (err) {
       console.error('Failed to fetch posts', err);
@@ -80,13 +80,14 @@ export default function AdminDashboard() {
     setUploadingImage(true);
     
     try {
-      const res = await axios.post('http://localhost:5001/api/upload', formData, {
+      const res = await axios.post(`${API_BASE_URL}/api/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`
         }
       });
-      setCurrentPost({ ...currentPost, thumbnail: res.data.url });
+      const imageUrl = res.data.url.startsWith('http') ? res.data.url : `${API_BASE_URL}${res.data.url}`;
+      setCurrentPost({ ...currentPost, thumbnail: imageUrl });
       showToast('Image uploaded successfully!');
     } catch (err) {
       showToast('Failed to upload image', 'error');
@@ -122,7 +123,7 @@ export default function AdminDashboard() {
     if (!window.confirm('Are you sure you want to delete this post?')) return;
     const token = localStorage.getItem('adminToken');
     try {
-      await axios.delete(`http://localhost:5001/api/posts/${id}`, {
+      await axios.delete(`${API_BASE_URL}/api/posts/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       showToast('Post deleted successfully!');
@@ -136,7 +137,7 @@ export default function AdminDashboard() {
     e.preventDefault();
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.post('http://localhost:5001/api/auth/change-password', 
+      await axios.post(`${API_BASE_URL}/api/auth/change-password`, 
         { oldPassword, newPassword },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -152,7 +153,7 @@ export default function AdminDashboard() {
     e.preventDefault();
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.post('http://localhost:5001/api/auth/register-admin', 
+      await axios.post(`${API_BASE_URL}/api/auth/register-admin`, 
         { email: newAdminEmail, password: newAdminPassword, name: newAdminName },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -255,7 +256,11 @@ export default function AdminDashboard() {
                       <div className="flex gap-6 items-center w-full md:w-auto mb-4 md:mb-0">
                         {post.thumbnail && (
                           <div className="w-24 h-16 rounded-lg overflow-hidden shrink-0 bg-gray-100">
-                            <img src={post.thumbnail} alt={post.title} className="w-full h-full object-cover" />
+                            <img 
+                              src={post.thumbnail.startsWith('http') ? post.thumbnail : `${API_BASE_URL}${post.thumbnail}`} 
+                              alt={post.title} 
+                              className="w-full h-full object-cover" 
+                            />
                           </div>
                         )}
                         <div>
@@ -357,7 +362,11 @@ export default function AdminDashboard() {
                     </div>
                     {currentPost.thumbnail && (
                       <div className="w-40 rounded-xl overflow-hidden border-2 border-white shadow-lg shrink-0 aspect-video bg-gray-200">
-                        <img src={currentPost.thumbnail} alt="Preview" className="w-full h-full object-cover" />
+                        <img 
+                          src={currentPost.thumbnail.startsWith('http') ? currentPost.thumbnail : `${API_BASE_URL}${currentPost.thumbnail}`} 
+                          alt="Preview" 
+                          className="w-full h-full object-cover" 
+                        />
                       </div>
                     )}
                   </div>

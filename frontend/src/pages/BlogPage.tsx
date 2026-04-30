@@ -62,7 +62,7 @@ export default function BlogPage() {
                     {post.thumbnail && (
                       <div className="aspect-video w-full overflow-hidden bg-primary/5">
                         <img
-                          src={post.thumbnail}
+                          src={post.thumbnail.startsWith('http') ? post.thumbnail : `${API_BASE_URL}${post.thumbnail}`}
                           alt={post.title}
                           className="h-full w-full object-cover transition-transform duration-700 ease-[var(--ease-out-premium)] group-hover:scale-110"
                         />

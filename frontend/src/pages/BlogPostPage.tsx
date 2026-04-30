@@ -57,10 +57,10 @@ export default function BlogPostPage() {
       {post.thumbnail && (
         <div className="relative h-[40vh] w-full min-h-[300px] overflow-hidden bg-primary">
           <div className="absolute inset-0 bg-primary/40 mix-blend-overlay z-10" />
-          <img
-            src={post.thumbnail}
-            alt={post.title}
-            className="h-full w-full object-cover"
+          <img 
+            src={post.thumbnail.startsWith('http') ? post.thumbnail : `${API_BASE_URL}${post.thumbnail}`} 
+            alt={post.title} 
+            className="w-full h-full object-cover" 
           />
         </div>
       )}
