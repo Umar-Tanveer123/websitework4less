@@ -1,0 +1,3 @@
+ssh -i ~/github_vps_key root@187.77.207.147
+
+postgresql://umertanver:admin@localhost:5432/websitework4less
